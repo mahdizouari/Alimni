@@ -87,21 +87,44 @@ p {
     text-align: justify;
 }
 
-.download-button, .buy-button {
+.button {
+    position: relative;
     display: inline-block;
     padding: 12px 25px;
     color: #fff;
     background-color: #6a11cb;
     text-decoration: none;
     border-radius: 5px;
+    overflow: hidden;
     transition: background-color 0.3s, transform 0.3s;
     text-align: center;
     font-weight: bold;
 }
 
-.download-button:hover, .buy-button:hover {
+.button:hover {
     background-color: #2575fc;
     transform: scale(1.05);
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+}
+
+.button:active::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
 }
 
 footer {
