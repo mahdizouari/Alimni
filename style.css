@@ -13,11 +13,37 @@ body {
 }
 
 header {
-    background: #343a40;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
     color: #fff;
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-30deg);
+    animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
 }
 
 header h1 {
@@ -43,6 +69,7 @@ h2 {
     color: #343a40;
     font-size: 1.8em;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .book-cover {
@@ -64,15 +91,16 @@ p {
     display: inline-block;
     padding: 12px 25px;
     color: #fff;
-    background-color: #343a40;
+    background-color: #6a11cb;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
     text-align: center;
+    font-weight: bold;
 }
 
 .download-button:hover, .buy-button:hover {
-    background-color: #495057;
+    background-color: #2575fc;
     transform: scale(1.05);
 }
 
